@@ -1,5 +1,11 @@
 package com.kkyeer.java.utils;
 
+/**
+ * @Author: kkyeer
+ * @Description:
+ * @Date:Created in 0:33 2018/1/20
+ * @Modified By:
+ */
 public class FileCleanException extends Exception {
     public FileCleanException() {
     }

@@ -6,24 +6,28 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @author kk
+ * @Author: kkyeer
+ * @Description:
+ * @Date:Created in 0:24 2018/1/20
+ * @Modified By:
  */
 public class AddressUtil {
-	/**
-	 * @Author: kkyeer 
-	 * @Date: 2018/1/19 17:33
-	 * @param null
-	 * @Description:
-	 *
-	 */
+
+    /**
+     * @Description: 返回地址字符串切割后的元素，示例输入："浙江省杭州市",返回｛prov:"浙江省",city:"杭州市"}
+     * @Author: kkyeer
+     * @Date: 2018/1/20 0:52
+     * @param address 待切割的地址字符串
+     * @return 见说明
+     */
 	public static Map<String, String> getDevidedEle(String address) {
 		String provNameString = "";
 		String cityNameString = "";
 		String distNameString = "";
-		Map<String, String> retMap = new HashMap<>();
+		Map<String, String> retMap = new HashMap<>(3);
 		
 		// 定义省级的Regex
-		String provRegex = ".*自治区|.*省|.[^市 ]*市{1}";
+		String provRegex = ".*自治区|.*省|.[^市 ]*市";
 		Pattern pattern = Pattern.compile(provRegex);
 		Matcher matcher = pattern.matcher(address);
 		if (matcher.find()) {
