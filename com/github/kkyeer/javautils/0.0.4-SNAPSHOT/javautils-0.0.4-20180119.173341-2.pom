@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>com.github.kkyeer</groupId>
+	<artifactId>javautils</artifactId>
+	<version>0.0.4-SNAPSHOT</version>
+	
+	
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
+		<!--引用setting.xml的server信息-->
+		<github.global.server>github</github.global.server>
+	</properties>
+	
+	<distributionManagement>
+		<!--此处定义本地Release分发路径-->
+		<repository>
+			<id>releases</id>
+			<url>file://${project.build.directory}/mvn-repo/releases</url>
+		</repository>
+		<!--此处定义本地Snapshot分发路径-->
+		<snapshotRepository>
+			<id>snapshots</id>
+			<url>file://${project.build.directory}/mvn-repo/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+	
+	
+	<build>
+		<plugins>
+			<plugin>
+				<!--Maven 编译设置-->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<!--Github自动提交插件-->
+				<groupId>com.github.github</groupId>
+				<artifactId>site-maven-plugin</artifactId>
+				<version>0.12</version>
+				<configuration>
+					<!--提交内容-->
+					<message>Maven artifact ${project.version}</message>
+					<!--提交到的分支-->
+					<branch>refs/heads/mvn-repo</branch>
+					<!--待提交的文件夹-->
+					<outputDirectory>${project.build.directory}/mvn-repo/snapshots</outputDirectory>
+					<includes>
+						<include>**/*</include>
+					</includes>
+					<!--github仓库名-->
+					<repositoryName>KKUtils</repositoryName>
+					<!--github用户名-->
+					<repositoryOwner>kkyeer</repositoryOwner>
+					<noJekyll>true</noJekyll>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>site</goal>
+						</goals>
+						<!--绑定到deploy上-->
+						<phase>deploy</phase>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+		<extensions>
+			<extension>
+				<!--TODO -->
+				<artifactId>wagon-webdav-jackrabbit</artifactId>
+				<groupId>org.apache.maven.wagon</groupId>
+				<version>2.2</version>
+			</extension>
+		</extensions>
+	</build>
+</project>
