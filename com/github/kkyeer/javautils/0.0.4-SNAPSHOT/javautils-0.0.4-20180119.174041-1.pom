@@ -20,13 +20,13 @@
 	<distributionManagement>
 		<!--此处定义本地Release分发路径-->
 		<repository>
-			<id>releases</id>
-			<url>file://${project.build.directory}/mvn-repo/releases/${project.version}</url>
+			<id>com.kkyeer.kkutils</id>
+			<url>file://${project.build.directory}/mvn-repo</url>
 		</repository>
 		<!--此处定义本地Snapshot分发路径-->
 		<snapshotRepository>
-			<id>snapshots</id>
-			<url>file://${project.build.directory}/mvn-repo/snapshots/${project.version}</url>
+			<id>com.kkyeer.kkutils</id>
+			<url>file://${project.build.directory}/mvn-repo</url>
 		</snapshotRepository>
 	</distributionManagement>
 	
@@ -54,9 +54,9 @@
 					<!--提交内容-->
 					<message>Maven artifact ${project.version}</message>
 					<!--提交到的分支-->
-					<branch>refs/heads/${project.version}</branch>
+					<branch>refs/heads/mvn-repo</branch>
 					<!--待提交的文件夹-->
-					<outputDirectory>${project.build.directory}/mvn-repo/snapshots/${project.version}</outputDirectory>
+					<outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
 					<includes>
 						<include>**/*</include>
 					</includes>
