@@ -21,12 +21,12 @@
 		<!--此处定义本地Release分发路径-->
 		<repository>
 			<id>com.kkyeer.kkutils</id>
-			<url>file://${project.build.directory}/mvn-repo</url>
+			<url>file://${project.build.directory}/mvn-repo/${version}</url>
 		</repository>
 		<!--此处定义本地Snapshot分发路径-->
 		<snapshotRepository>
 			<id>com.kkyeer.kkutils</id>
-			<url>file://${project.build.directory}/mvn-repo</url>
+			<url>file://${project.build.directory}/mvn-repo/${version}</url>
 		</snapshotRepository>
 	</distributionManagement>
 	
@@ -56,7 +56,7 @@
 					<!--提交到的分支-->
 					<branch>refs/heads/mvn-repo</branch>
 					<!--待提交的文件夹-->
-					<outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
+					<outputDirectory>${project.build.directory}/mvn-repo/${version}</outputDirectory>
 					<includes>
 						<include>**/*</include>
 					</includes>
