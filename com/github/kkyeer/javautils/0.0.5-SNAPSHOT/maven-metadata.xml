@@ -2,23 +2,23 @@
 <metadata modelVersion="1.1.0">
   <groupId>com.github.kkyeer</groupId>
   <artifactId>javautils</artifactId>
-  <version>0.0.4-SNAPSHOT</version>
+  <version>0.0.5-SNAPSHOT</version>
   <versioning>
     <snapshot>
-      <timestamp>20180120.010207</timestamp>
+      <timestamp>20180120.010435</timestamp>
       <buildNumber>1</buildNumber>
     </snapshot>
-    <lastUpdated>20180120010207</lastUpdated>
+    <lastUpdated>20180120010435</lastUpdated>
     <snapshotVersions>
       <snapshotVersion>
         <extension>jar</extension>
-        <value>0.0.4-20180120.010207-1</value>
-        <updated>20180120010207</updated>
+        <value>0.0.5-20180120.010435-1</value>
+        <updated>20180120010435</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>pom</extension>
-        <value>0.0.4-20180120.010207-1</value>
-        <updated>20180120010207</updated>
+        <value>0.0.5-20180120.010435-1</value>
+        <updated>20180120010435</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>
