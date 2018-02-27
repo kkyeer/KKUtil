@@ -4,7 +4,14 @@ package com.kkyeer.java.utils;
  * @author kkyeer@gamil.com
  * @date 2018/1/18 14:26
  */
-public class StringUtil {
+public final class StringUtil {
+
+    /**
+     * 防止实例化
+     */
+    private StringUtil(){
+
+    }
 
     /**
      * @Description: 检测字符串是否为空或者null

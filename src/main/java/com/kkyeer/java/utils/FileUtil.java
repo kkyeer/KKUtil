@@ -11,7 +11,14 @@ import java.util.stream.Stream;
  * @Date:Created in 0:34 2018/1/20
  * @Modified By:
  */
-public class FileUtil {
+public final class FileUtil {
+
+    /**
+     * 防止实例化
+     */
+    private FileUtil(){
+
+    }
 
     /**
      * @Description: 清理指定文件夹中文件的文件名，删除指定的文件名头

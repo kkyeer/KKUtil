@@ -11,7 +11,13 @@ import java.util.regex.Pattern;
  * @Date:Created in 0:24 2018/1/20
  * @Modified By:
  */
-public class AddressUtil {
+public final class AddressUtil {
+	/**
+	 * 不允许实例化
+	 */
+	private AddressUtil(){
+
+	}
 
     /**
      * @Description: 返回地址字符串切割后的元素，示例输入："浙江省杭州市",返回｛prov:"浙江省",city:"杭州市"}
