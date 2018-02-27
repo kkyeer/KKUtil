@@ -4,8 +4,9 @@
   <artifactId>javautils</artifactId>
   <versioning>
     <versions>
-      <version>0.0.4-SNAPSHOT</version>
+      <version>0.0.1-SNAPSHOT</version>
+      <version>0.0.2-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20180120011822</lastUpdated>
+    <lastUpdated>20180227021614</lastUpdated>
   </versioning>
 </metadata>
