@@ -6,43 +6,35 @@
 	
 	<groupId>com.github.kkyeer</groupId>
 	<artifactId>javautils</artifactId>
-	<version>0.0.3-SNAPSHOT</version>
+	<version>0.0.5</version>
 	
 	
 	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
+		<!--引用setting.xml的server信息-->
 		<github.global.server>github</github.global.server>
 	</properties>
 	
 	<distributionManagement>
+		<!--此处定义本地Release分发路径-->
 		<repository>
-			<id>releases</id>
-			<url>file://${project.build.directory}/mvn-repo/releases</url>
+			<id>com.kkyeer.kkutils</id>
+			<url>file://${project.build.directory}/mvn-repo/${project.version}</url>
 		</repository>
+		<!--此处定义本地Snapshot分发路径-->
 		<snapshotRepository>
-			<id>snapshots</id>
-			<url>file://${project.build.directory}/mvn-repo/snapshots</url>
+			<id>com.kkyeer.kkutils</id>
+			<url>file://${project.build.directory}/mvn-repo/${project.version}</url>
 		</snapshotRepository>
 	</distributionManagement>
 	
 	
-	<repositories>
-		<repository>
-			<id>kkutils</id>
-			<url>https://raw.github.com/kkyeer/KKUtils/mvn-repo/</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
-	
 	<build>
 		<plugins>
 			<plugin>
+				<!--Maven 编译设置-->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.7.0</version>
@@ -54,17 +46,23 @@
 			</plugin>
 			
 			<plugin>
+				<!--Github自动提交插件-->
 				<groupId>com.github.github</groupId>
 				<artifactId>site-maven-plugin</artifactId>
 				<version>0.12</version>
 				<configuration>
+					<!--提交内容-->
 					<message>Maven artifact ${project.version}</message>
+					<!--提交到的分支-->
 					<branch>refs/heads/mvn-repo</branch>
-					<outputDirectory>${project.build.directory}/mvn-repo/snapshots</outputDirectory>
+					<!--待提交的文件夹-->
+					<outputDirectory>${project.build.directory}/mvn-repo/${project.version}</outputDirectory>
 					<includes>
 						<include>**/*</include>
 					</includes>
+					<!--github仓库名-->
 					<repositoryName>KKUtils</repositoryName>
+					<!--github用户名-->
 					<repositoryOwner>kkyeer</repositoryOwner>
 					<noJekyll>true</noJekyll>
 				</configuration>
@@ -73,6 +71,7 @@
 						<goals>
 							<goal>site</goal>
 						</goals>
+						<!--绑定到deploy上-->
 						<phase>deploy</phase>
 					</execution>
 				</executions>
@@ -80,6 +79,7 @@
 		</plugins>
 		<extensions>
 			<extension>
+				<!--TODO -->
 				<artifactId>wagon-webdav-jackrabbit</artifactId>
 				<groupId>org.apache.maven.wagon</groupId>
 				<version>2.2</version>
